@@ -11,7 +11,7 @@ Deno.serve(async () => {
 
 	const more_than_one_hour_ago_since_last_update = Date.now() - (timestamp.value || 0) > one_hour;
 
-	if (!weather_data.value || more_than_one_hour_ago_since_last_update) {
+	if (!weather_data.value?.current || more_than_one_hour_ago_since_last_update) {
 		kv.set(['timestamp'], Date.now());
 
 		const data = await fetch(
