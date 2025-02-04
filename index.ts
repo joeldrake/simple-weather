@@ -34,7 +34,9 @@ Deno.serve(async () => {
 		? 'rain'
 		: is_cloudy
 		? 'cloud'
-		: 'sun';
+		: day_or_night === 'day'
+		? 'sun'
+		: 'stars';
 
 	return new Response(`${weather_today} ${day_or_night} ${JSON.stringify(weather_data, null, 2)}`);
 });
